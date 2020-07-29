@@ -32,21 +32,13 @@ echo "Instalando o grub em /dev/sda..." ; sleep 2
 grub-install --recheck /dev/sda ; grub-mkconfig -o /boot/grub/grub.cfg 
 
 # Instala o xorg + extras:
-pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xrandr nvidia nvidia-settings pulseaudio ttf-dejavu ttf-liberation
+pacman -S --noconfirm xorg-server xorg-xinit xorg-xsetroot xorg-xrandr nvidia nvidia-settings pulseaudio ttf-dejavu ttf-liberation ttf-font-awesome
 
 # Instala o i3-gapps + extras:
-pacman -S --noconfirm i3-gaps i3status dmenu xterm hsetroot xcompmgr
+pacman -S --noconfirm i3-gaps i3status dmenu hsetroot xcompmgr
 
 # Instala aplicações:
-pacman -S --noconfirm wget git curl p7zip ntfs-3g hdparm gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler xarchiver mousepad ristretto lxappearance firefox telegram-desktop
-
-# Gera e escreve o arquivo .xinitrc:
-echo 'startx' >> /etc/skel/.bash_profile ; echo 'exec i3' >> /etc/skel/.xinitrc
-
-# Cria grupo de pastas padrão ao usuário:
-cd /etc/skel/ 
-mkdir -p "Desktop" "Documentos" "Downloads" "Imagens" "Modelos" "Música" "Público" "Vídeos" "Wallpapers" ".icons" ".themes" 
-touch "/etc/skel/Modelos/Playlist.m3u"
+pacman -S --noconfirm wget git curl p7zip ntfs-3g hdparm gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler xarchiver mousepad ristretto lxappearance vlc transmission-gtk firefox telegram-desktop
 
 # Habilita o dhcpcd durante o boot:
 systemctl enable dhcpcd
