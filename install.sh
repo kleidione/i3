@@ -1,7 +1,7 @@
 #!bin/bash
 
 # Instala os pacotes básicos do archlinux:
-pacstrap /mnt base base-devel linux linux-firmware grub nano dhcpcd
+pacstrap /mnt base base-devel linux linux-firmware grub nano dhcpcd net-tools
 
 # Gera a fstab:
 genfstab -U -p /mnt >> /mnt/etc/fstab
