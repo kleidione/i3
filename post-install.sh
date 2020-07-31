@@ -35,7 +35,7 @@ grub-install --recheck /dev/sda ; grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xsetroot xorg-xrandr nvidia nvidia-settings pulseaudio ttf-dejavu ttf-liberation ttf-font-awesome
 
 # Instala o i3-gapps + extras:
-pacman -S --noconfirm i3-gaps i3status dmenu hsetroot xcompmgr
+pacman -S --noconfirm i3-gaps i3status dmenu hsetroot picom
 
 # Instala aplicações:
 pacman -S --noconfirm wget git curl p7zip file-roller ntfs-3g hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler mousepad ristretto lxappearance vlc transmission-gtk firefox telegram-desktop
