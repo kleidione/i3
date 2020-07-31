@@ -32,7 +32,7 @@ echo "Instalando o grub em /dev/sda..." ; sleep 2
 grub-install --recheck /dev/sda ; grub-mkconfig -o /boot/grub/grub.cfg 
 
 # Instala o xorg + extras:
-pacman -S --noconfirm xorg-server xorg-xinit xorg-xsetroot xorg-xrandr nvidia nvidia-settings pulseaudio ttf-dejavu ttf-liberation ttf-font-awesome
+pacman -S --noconfirm xorg-server xorg-xinit xorg-xsetroot xorg-xrandr nvidia nvidia-settings pulseaudio ttf-dejavu ttf-liberation noto-fonts
 
 # Instala o i3-gapps + extras:
 pacman -S --noconfirm i3-gaps i3status dmenu hsetroot picom
