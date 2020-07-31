@@ -38,7 +38,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xsetroot xorg-xrandr nvidia nv
 pacman -S --noconfirm i3-gaps i3status dmenu hsetroot xcompmgr
 
 # Instala aplicações:
-pacman -S --noconfirm wget git curl p7zip ntfs-3g hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler xarchiver mousepad ristretto lxappearance vlc transmission-gtk firefox telegram-desktop
+pacman -S --noconfirm wget git curl p7zip file-roller ntfs-3g hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler mousepad ristretto lxappearance vlc transmission-gtk firefox telegram-desktop
 
 # Habilita o dhcpcd durante o boot:
 systemctl enable dhcpcd
