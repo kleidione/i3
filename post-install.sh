@@ -41,6 +41,6 @@ pacman -S --noconfirm i3-gaps i3status dmenu hsetroot picom
 pacman -S --noconfirm wget git curl p7zip file-roller ntfs-3g hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler mousepad ristretto lxappearance vlc transmission-gtk firefox telegram-desktop
 
 # Habilita o dhcpcd durante o boot:
-systemctl enable dhcpcd
+systemctl enable NetworkManager
 
 clear ; echo " " ; echo "Script finalizado. Pressione uma tecla para encerrar." ; read tecla
