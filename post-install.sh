@@ -4,7 +4,7 @@
 pacman -Syu
 
 # Define o idioma padrão do sistema:
-sed -i '/en_US.U/s/^/#/' /etc/locale.gen ; sed -i '/pt_BR/,+1 s/^#//' /etc/locale.gen ; echo LANG=pt_BR.UTF-8 > /etc/locale.conf ; locale-gen ; export LANG=pt_BR.UTF-8
+sed -i '/en_US.U/,+1 s/^#//' /etc/locale.gen ; sed -i '/pt_BR/,+1 s/^#//' /etc/locale.gen ; echo LANG=pt_BR.UTF-8 > /etc/locale.conf ; locale-gen ; export LANG=pt_BR.UTF-8
 
 # Define o idioma padrão do teclado:
 loadkeys br-abnt ; echo -e "KEYMAP=br-abnt2\nFONT=Lat2-Terminus16\nFONT_MAP=" > /etc/vconsole.conf ; mkdir -p /etc/X11/xorg.conf.d ; echo -e 'Section "InputClass"\nIdentifier "Keyboard Defaults"\nMatchIsKeyboard "yes"\nOption "XkbLayout" "br"\nEndSection' | tee /etc/X11/xorg.conf.d/01-keyboard-layout.conf
@@ -28,19 +28,24 @@ clear ; sleep 2
 echo "archlinux" > /etc/hostname
 
 # Instala o Grub:
-echo "Instalando o grub em /dev/sda..." ; sleep 2
-grub-install --recheck /dev/sda ; grub-mkconfig -o /boot/grub/grub.cfg 
+echo "Instalando o grub em /mnt/boot..." ; sleep 2
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --recheck ; grub-mkconfig -o /boot/grub/grub.cfg 
 
 # Instala o xorg + extras:
-pacman -S --noconfirm xorg-server xorg-xinit xorg-xsetroot xorg-xrandr nvidia nvidia-settings pulseaudio ttf-dejavu ttf-liberation noto-fonts nerd-fonts-hack
+pacman -S --noconfirm xorg xorg-xinit pulseaudio mesa intel-ucode vulkan-intel ttf-dejavu ttf-liberation noto-fonts nerd-fonts-hack
 
 # Instala o i3-gapps + extras:
 pacman -S --noconfirm i3-gaps i3status dmenu hsetroot picom
 
 # Instala aplicações:
-pacman -S --noconfirm wget git curl p7zip file-roller ntfs-3g hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler mousepad ristretto lxappearance vlc transmission-gtk firefox telegram-desktop
+pacman -S --noconfirm wget git curl p7zip file-roller ntfs-3g mtools dosfstools cups hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler mousepad ristretto lxappearance vlc qbittorrent firefox
 
-# Habilita o dhcpcd durante o boot:
+# Instala aplicação oficial telegram:
+wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; mv /opt/Telegram*/ /opt/telegram ; ln -sf /opt/telegram/Telegram /usr/bin/telegram ; echo -e '[Desktop Entry]\n Version=1.0\n Exec=/opt/telegram/Telegram\n Icon=Telegram\n Type=Application\n Categories=Application;Network;' | tee /usr/share/applications/telegram.desktop
+
+# Habilita serviços:
 systemctl enable NetworkManager
+systemctl enable org.cups.cupsd
+systemctl enable fstrim.timer
 
 clear ; echo " " ; echo "Script finalizado. Pressione uma tecla para encerrar." ; read tecla
