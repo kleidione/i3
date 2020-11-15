@@ -32,7 +32,7 @@ echo "Instalando o grub em /mnt/boot..." ; sleep 2
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --recheck ; grub-mkconfig -o /boot/grub/grub.cfg 
 
 # Instala o xorg + extras:
-pacman -S --noconfirm xorg xorg-xinit pulseaudio mesa intel-ucode vulkan-intel ttf-dejavu ttf-liberation noto-fonts nerd-fonts-hack
+pacman -S --noconfirm xorg xorg-xinit pulseaudio mesa xf86-video-amdgpu libva-mesa-driver mesa-vdpau vulkan-radeon intel-ucode ttf-dejavu ttf-liberation noto-fonts nerd-fonts-hack
 
 # Instala o i3-gapps + extras:
 pacman -S --noconfirm i3-gaps i3status dmenu hsetroot picom
