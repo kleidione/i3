@@ -1,1 +1,1 @@
-# Instala o i3 no arch linux!
+# Instala o arch linux com i3!
