@@ -32,13 +32,13 @@ echo "Instalando o grub em /mnt/boot..." ; sleep 2
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --recheck ; grub-mkconfig -o /boot/grub/grub.cfg 
 
 # Instala o xorg + extras:
-pacman -S --noconfirm xorg pulseaudio mesa xf86-video-amdgpu libva-mesa-driver mesa-vdpau vulkan-radeon intel-ucode ttf-dejavu ttf-liberation noto-fonts nerd-fonts-hack
+pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill pulseaudio mesa xf86-video-intel vulkan-intel intel-ucode ttf-dejavu ttf-liberation noto-fonts nerd-fonts-hack
 
 # Instala o i3-gapps + extras:
 pacman -S --noconfirm i3-gaps i3status dmenu hsetroot picom
 
 # Instala aplicações:
-pacman -S --noconfirm wget git curl p7zip file-roller ntfs-3g mtools dosfstools cups hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler polkit-gnome gnome-disk-utility neofetch reflector pluma ristretto lxappearance vlc qbittorrent firefox
+pacman -S --noconfirm wget git curl p7zip file-roller ntfs-3g mtools dosfstools cups hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler polkit-gnome gnome-disk-utility neofetch reflector pluma ristretto lxappearance vlc qbittorrent firefox-i18n-pt-br
 
 # Instala aplicação oficial telegram:
 wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; mv /opt/Telegram*/ /opt/telegram ; ln -sf /opt/telegram/Telegram /usr/bin/telegram ; echo -e '[Desktop Entry]\n Version=1.0\n Exec=/opt/telegram/Telegram\n Icon=Telegram\n Type=Application\n Categories=Application;Network;' | tee /usr/share/applications/telegram.desktop
