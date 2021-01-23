@@ -45,6 +45,7 @@ wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegr
 
 # Habilita serviços:
 systemctl enable NetworkManager
+systemctl enable bluetooth.service
 systemctl enable org.cups.cupsd
 systemctl enable fstrim.timer
 
