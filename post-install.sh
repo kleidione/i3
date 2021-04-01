@@ -34,6 +34,9 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --re
 # Instala o xorg + extras:
 pacman -S --noconfirm xorg xorg-xinit pulseaudio mesa xf86-video-intel vulkan-intel intel-ucode ttf-dejavu ttf-liberation noto-fonts nerd-fonts-hack
 
+# Faz ajustes no interpretador de Byte-Code (BCI)
+echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=35 cff:no-stem-darkening=1 autofitter:warping=1"' | tee -a /etc/profile.d/freetype2.sh
+
 # Instala o i3-gapps + extras:
 pacman -S --noconfirm i3-gaps i3status dmenu hsetroot picom
 
