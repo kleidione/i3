@@ -41,7 +41,7 @@ echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=35 cff:no-stem-da
 pacman -S --noconfirm i3-gaps i3status dmenu hsetroot picom
 
 # Instala aplicações:
-pacman -S --noconfirm wget git curl p7zip file-roller ntfs-3g mtools dosfstools cups hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler polkit-gnome gnome-disk-utility neofetch pluma ristretto lxappearance vlc qbittorrent firefox-i18n-pt-br
+pacman -S --noconfirm wget git curl yay p7zip file-roller ntfs-3g mtools dosfstools cups hdparm numlockx gvfs gvfs-mtp xdg-user-dirs xdg-utils xfce4-terminal oh-my-zsh-git zsh-syntax-highlighting xfce4-screenshooter thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler polkit-gnome gnome-disk-utility neofetch pluma ristretto lxappearance vlc qbittorrent firefox-i18n-pt-br
 
 # Instala aplicação oficial telegram:
 cd /tmp ; wget -c "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram
